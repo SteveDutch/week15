@@ -28,9 +28,14 @@
 			<hr>
 			<div th:text="${firstName}">seeabletext ?Das zwische den geschweiften Klammern komt aus JAVA"</div>
 			<hr>
-		<div th:text="|Hi there ${firstName}|">this text is ignored
-			viorvori</div>
+		<div th:text="|Hi there ${firstName}|">this text is ignored	viorvori
+		</div>
 		<hr>
+		<div th:each="storedPerson: ${people}">
+			<span th:inline="text">
+				Person # [[${storedPerson.id}]] : [[${storedPerson.firstName}]] [[${storedPerson.lastName}]]
+			</span>
+		</div>
 		<form action="" method="post">
 			<div> <!-- div nicht notwendig, muß aber in forms sein // if text and not hidden, genauso veränderbar wie die Namen-->
 				<input type="hidden" th:field="${person.id}"/>

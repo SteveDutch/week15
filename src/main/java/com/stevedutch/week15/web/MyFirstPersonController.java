@@ -1,5 +1,7 @@
 package com.stevedutch.week15.web;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -43,14 +45,25 @@ public class MyFirstPersonController {
 		return "people";
 	}
 	
-	@GetMapping("get-person-list")
+	@GetMapping("/get-person-list")
 	public String getPeople (ModelMap model) {
 		List<Person> people = personService.findAll();
 		Person person = new Person();
 		model.put("person", person);
 		model.put("people", people);
+		return "people";
 		
 	}
+	
+	@PostMapping("/get-person-list")
+	public String postPeople1 (Person person) {
+		Person savedPerson = personService.save(person);
+		System.out.println(savedPerson + "\n  from PostMapping persons");
+		
+		return "redirect:/get-person-list";
+		
+	}
+	
 	
 	@PostMapping("/persons")
 	public String postPeople (Person person) {

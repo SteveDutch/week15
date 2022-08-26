@@ -2,11 +2,15 @@ package com.stevedutch.week15.repository;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
+import java.util.Map.Entry;
+
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Repository;
 
 import com.stevedutch.week15.domain.Person;
-import com.stevedutch.week15.service.List;
+
 
 @Repository
 public class PersonRepository {
@@ -27,7 +31,10 @@ public class PersonRepository {
 	}
 
 	public List<Person> findAll() {
-		return people;
+		return people.entrySet()
+					 .stream()
+					 .map(Entry::getValue)
+					 .collect(Collectors.toList());
 	}
 
 }

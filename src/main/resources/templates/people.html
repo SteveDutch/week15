@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>first webpage in spring</title>
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+		<header>
+			<div id="logo">
+				<img src="img/unbenanntII.png" alt="CodersCampus Logo" width="70" class="udacity">
+			</div>
+			<div id="who">
+				<h1>Stefan Holländer</h1>
+					<span>java backend ninja rookie</span>
+			</div>
+			
+		</header>
+		<hr>
+		<img src="img/placeholder.jpg" alt="big picture" class="welcome">
+		
+		<div id="coderscampus">
+		<h1> this is the CodersCampus part of this html!</h1>
+			<div id="CoCaPart" th:inline="text"> Hi there (the following name is taken from JAVA) [[${firstName}]]
+			</div>
+			<!-- any tag would be possible -->
+			<hr>
+			<div th:text="${firstName}">seeabletext ?Das zwische den geschweiften Klammern komt aus JAVA"</div>
+			<hr>
+		<div th:text="|Hi there ${firstName}|">this text is ignored
+			viorvori</div>
+		<hr>
+		<form action="" method="post">
+			<div> <!-- div nicht notwendig, muß aber in forms sein // if text and not hidden, genauso veränderbar wie die Namen-->
+				<input type="hidden" th:field="${person.id}"/>
+			</div>
+			<div>Name   
+				<input type="text" th:field="${person.firstName}" />
+			</div>
+			<div>Familie
+				<input type="text" th:field="${person.lastName}" />
+			</div>
+			<button>SUBMIT</button>
+
+		</form>
+	</div>
+		
+		<div id="workhead">
+			<h2>Featured Work</h2>
+		</div>
+		<main class="project-container">
+			<!-- Instead of a URL like in the mockup I put here some hyperlink display names like suggested in the review -->
+			<div class="project" id="sunset" >
+				<img src="img/placeholderI.jpg" alt="fine dawn project picture" width="200" height="133">
+				<p>sunset catcher<br><small>(yet to come)</small></p>
+				<a target="_blank" rel="noopener noreferrer" href="https://github.com/stevedutch">have a look at GitHub</a>
+			</div>
+			<div class="project" id="sunflower">
+				<img src="img/placeholderII.jpg" alt="fine colour-ordered buttons" width="200" height="133">
+				<p>buttons<br><small>(yet to come)</small></p>
+				<a target="_blank" rel="noopener noreferrer" href="https://github.com/stevedutch">have a look at GitHub</a>
+			</div>
+			<div class="project" id="goldentea">
+				<img src="img/placeholderIII.jpg" alt="fine golden tea bag wrapping" width="200" height="133">
+				<p>golden tea bag<br><small>(yet to come)</small></p>
+				<a target="_blank" rel="noopener noreferrer" href="https://github.com/stevedutch">have a look at GitHub</a>
+			</div>
+		</main>
+	</body>
+</html>

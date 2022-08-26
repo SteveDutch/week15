@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.stevedutch.week15.domain.Person;
 import com.stevedutch.week15.repository.PersonRepository;
+import com.stevedutch.week15.web.List;
 
 @Service
 public class PersonService {
@@ -22,6 +23,10 @@ public class PersonService {
 
 	public Person findById(Integer personId) {
 		return personRepo.findById(personId);
+	}
+
+	public List<Person> findAll() {
+		return personRepo.findAll();
 	}
 
 

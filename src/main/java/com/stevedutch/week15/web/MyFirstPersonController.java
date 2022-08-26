@@ -43,6 +43,15 @@ public class MyFirstPersonController {
 		return "people";
 	}
 	
+	@GetMapping("get-person-list")
+	public String getPeople (ModelMap model) {
+		List<Person> people = personService.findAll();
+		Person person = new Person();
+		model.put("person", person);
+		model.put("people", people);
+		
+	}
+	
 	@PostMapping("/persons")
 	public String postPeople (Person person) {
 		Person savedPerson = personService.save(person);

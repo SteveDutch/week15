@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.stereotype.Repository;
 
 import com.stevedutch.week15.domain.Person;
+import com.stevedutch.week15.service.List;
 
 @Repository
 public class PersonRepository {
@@ -23,6 +24,10 @@ public class PersonRepository {
 	@Override
 	public String toString() {
 		return "PersonRepository [people=" + people + "]";
+	}
+
+	public List<Person> findAll() {
+		return people;
 	}
 
 }

@@ -32,6 +32,15 @@ public class MyFirstPersonController {
 		return "people";
 	}
 	
+	@PostMapping("")
+	public String postRootWebpage (Person person) {
+		Person savedPerson = personService.save(person);
+		System.out.println(savedPerson + "\n  from PostMapping \"\"");
+		
+		return "redirect:/";
+		
+	}
+	
 	@GetMapping("/persons")
 	public String getpeople(ModelMap model) {
 		String firstName = "me";
@@ -91,13 +100,10 @@ public class MyFirstPersonController {
 		
 	}
 	
-	@PostMapping("")
-	public String postRootWebpage (Person person) {
-		Person savedPerson = personService.save(person);
-		System.out.println(savedPerson + "\n  from PostMapping \"\"");
-		
-		return "redirect:/";
-		
+	@PostMapping("/persons/{personId}/delete")
+	public String deletePerson (@PathVariable Integer personId) {
+		personService.delete(personId);
+		return "redirect:/get-person-list";
 	}
 
 }

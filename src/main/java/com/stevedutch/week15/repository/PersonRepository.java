@@ -37,4 +37,9 @@ public class PersonRepository {
 					 .collect(Collectors.toList());
 	}
 
+	public void delete(Integer personId2) {
+		people.remove(personId2);
+		
+	}
+
 }

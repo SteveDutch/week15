@@ -49,6 +49,11 @@
 			<button>SUBMIT</button>
 
 		</form>
+	<!-- 	unschön, but Trevor doesn't want to use JS at this time -->
+		<form th:action="@{/persons/{personId}/delete(personId = ${person.id})}" method="post" th:if="${person.id} != null">
+			<button>Delete</button>
+		</form>
+		<hr>
 	</div>
 		
 		<div id="workhead">
